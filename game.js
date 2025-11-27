@@ -226,7 +226,7 @@ function updateHintButton() {
 function useHint() {
     if (gameState.hintUsedThisScenario) return;
     
-    const scenario = QUESTIONS[`scenario${gameState.currentScenario}`][0]; // Get hint from any version
+    const scenario = QUESTIONS[`scenario${gameState.currentScenario}`]; // V6: Single question object
     
     showModal('💡', 'Hint', scenario.hint, [
         { text: 'Close', className: 'btn-primary', action: closeModal }
@@ -248,8 +248,8 @@ function submitAnswer() {
     }
     
     const scenarioKey = `scenario${gameState.currentScenario}`;
-    const versions = QUESTIONS[scenarioKey];
-    const correctAnswer = versions[0].correctAnswer; // All versions have same correct answer
+    const scenario = QUESTIONS[scenarioKey]; // V6: Single question object
+    const correctAnswer = scenario.correctAnswer;
     
     if (gameState.selectedAnswer === correctAnswer) {
         handleCorrectAnswer();
@@ -259,7 +259,7 @@ function submitAnswer() {
 }
 
 function handleCorrectAnswer() {
-    const scenario = QUESTIONS[`scenario${gameState.currentScenario}`][0];
+    const scenario = QUESTIONS[`scenario${gameState.currentScenario}`]; // V6: Single question object
     
     // Mark as completed
     if (!gameState.completedScenarios.includes(gameState.currentScenario)) {
