@@ -185,9 +185,12 @@ body {
     margin: 0;
 }
 
-.btn-restart {
-    background: #dc3545;
-    color: white;
+.header-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-restart, .btn-go-back {
     padding: 10px 20px;
     font-size: 0.9em;
     font-weight: 600;
@@ -197,10 +200,34 @@ body {
     transition: all 0.3s;
 }
 
+.btn-restart {
+    background: #dc3545;
+    color: white;
+}
+
 .btn-restart:hover {
     background: #c82333;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(220, 53, 69, 0.3);
+}
+
+.btn-go-back {
+    background: #6366f1;
+    color: white;
+}
+
+.btn-go-back:hover {
+    background: #4f46e5;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+.btn-go-back:disabled {
+    background: #d1d5db;
+    color: #9ca3af;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
 }
 
 .progress-container {
@@ -551,9 +578,16 @@ body {
         gap: 10px;
     }
     
-    .btn-restart {
+    .header-buttons {
+        display: flex;
+        gap: 8px;
+        width: 100%;
+    }
+    
+    .btn-restart, .btn-go-back {
         font-size: 0.85em;
         padding: 8px 16px;
+        flex: 1;
     }
     
     .progress-dots {

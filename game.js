@@ -24,6 +24,7 @@ const hintBtn = document.getElementById('hint-btn');
 const submitBtn = document.getElementById('submit-btn');
 const restartBtn = document.getElementById('restart-btn');
 const restartGameBtn = document.getElementById('restart-game-btn');
+const goBackBtn = document.getElementById('go-back-btn');
 
 // ===== INITIALIZATION =====
 document.addEventListener('DOMContentLoaded', () => {
@@ -38,6 +39,7 @@ function initializeEventListeners() {
     submitBtn.addEventListener('click', submitAnswer);
     restartBtn.addEventListener('click', restartGame);
     restartGameBtn.addEventListener('click', confirmRestart);
+    goBackBtn.addEventListener('click', goBackOne);
 }
 
 // ===== SAVE/LOAD PROGRESS =====
@@ -217,6 +219,13 @@ function updateProgressDisplay() {
     
     document.getElementById('progress-text').textContent = 
         `Scenario ${gameState.currentScenario} of 10`;
+    
+    // Enable/disable Go Back button
+    if (gameState.currentScenario <= 1) {
+        goBackBtn.disabled = true;
+    } else {
+        goBackBtn.disabled = false;
+    }
 }
 
 // ===== HINT SYSTEM =====
@@ -402,6 +411,25 @@ function showModal(icon, title, message, buttons, warningStyle = false) {
 
 function closeModal() {
     modal.classList.remove('active');
+}
+
+// Go back to previous scenario
+function goBackOne() {
+    if (gameState.currentScenario <= 1) {
+        return; // Already at first scenario
+    }
+    
+    // Remove current scenario from completed list
+    const currentIndex = gameState.completedScenarios.indexOf(gameState.currentScenario);
+    if (currentIndex > -1) {
+        gameState.completedScenarios.splice(currentIndex, 1);
+    }
+    
+    // Go back one scenario
+    gameState.currentScenario--;
+    
+    // Load previous scenario with new version
+    loadScenario(gameState.currentScenario, true);
 }
 
 // Confirm restart from in-game button
