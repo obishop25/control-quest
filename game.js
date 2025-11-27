@@ -23,6 +23,7 @@ const resumeBtn = document.getElementById('resume-btn');
 const hintBtn = document.getElementById('hint-btn');
 const submitBtn = document.getElementById('submit-btn');
 const restartBtn = document.getElementById('restart-btn');
+const restartGameBtn = document.getElementById('restart-game-btn');
 
 // ===== INITIALIZATION =====
 document.addEventListener('DOMContentLoaded', () => {
@@ -36,6 +37,7 @@ function initializeEventListeners() {
     hintBtn.addEventListener('click', useHint);
     submitBtn.addEventListener('click', submitAnswer);
     restartBtn.addEventListener('click', restartGame);
+    restartGameBtn.addEventListener('click', confirmRestart);
 }
 
 // ===== SAVE/LOAD PROGRESS =====
@@ -400,6 +402,17 @@ function showModal(icon, title, message, buttons, warningStyle = false) {
 
 function closeModal() {
     modal.classList.remove('active');
+}
+
+// Confirm restart from in-game button
+function confirmRestart() {
+    showModal('⚠️', 'Restart Game?', 
+        'Are you sure you want to restart? All progress will be lost.', 
+        [
+            { text: 'Cancel', className: 'btn-secondary', action: closeModal },
+            { text: 'Restart', className: 'btn-primary', action: restartGame }
+        ]
+    );
 }
 
 // Close modal if clicking outside

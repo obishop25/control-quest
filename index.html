@@ -26,8 +26,8 @@
             </div>
             
             <div class="name-input-container">
-                <label for="student-name">Enter Your Name:</label>
-                <input type="text" id="student-name" placeholder="Your full name" maxlength="50">
+                <label for="student-name">Enter Your First Name and Last Initial:</label>
+                <input type="text" id="student-name" placeholder="e.g., John S" maxlength="50">
             </div>
             
             <button id="start-btn" class="btn-primary">Start Challenge</button>
@@ -39,7 +39,10 @@
     <div id="game-screen" class="screen">
         <div class="container">
             <header>
-                <h1>Control Quest</h1>
+                <div class="header-content">
+                    <h1>Control Quest</h1>
+                    <button id="restart-game-btn" class="btn-restart" title="Start over from the beginning">🔄 Restart</button>
+                </div>
                 <div class="progress-container">
                     <div id="progress-dots" class="progress-dots"></div>
                     <p id="progress-text" class="progress-text">Scenario 1 of 10</p>
@@ -91,8 +94,8 @@
                     <ul>
                         <li>✓ Control and consolidation requirements</li>
                         <li>✓ Ownership threshold analysis</li>
-                        <li>✓ Indirect ownership calculations</li>
-                        <li>✓ Complex corporate structures</li>
+                        <li>✓ Simple and complex ownership chains</li>
+                        <li>✓ Multiple entity structures</li>
                         <li>✓ Variable Interest Entity (VIE) concepts</li>
                     </ul>
                 </div>
