@@ -1,6 +1,7 @@
-// ===== QUESTION BANK =====
-// Each scenario has 3 versions (A, B, C)
-// correctAnswer index corresponds to the options array (0, 1, 2, or 3)
+// ===== CONTROL QUEST VERSION 3.0 QUESTION BANK =====
+// Each scenario uses the SAME company names across all 3 versions
+// Only the percentages vary between versions
+// Scenarios 6 and 7 have NO indirect ownership calculations
 
 const QUESTIONS = {
     scenario1: [
@@ -22,47 +23,47 @@ const QUESTIONS = {
             ],
             correctAnswer: 0,
             hint: "What ownership percentage creates control? Remember the 50% threshold.",
-            explanation: "✅ Correct! TechStart owns more than 50% of voting stock (65%), giving it controlling financial interest. Consolidation is required."
+            explanation: "✅ Correct! TechStart owns 65% of voting stock, which is more than 50%. This gives TechStart controlling financial interest. Consolidation is required."
         },
         // VERSION B
         {
-            text: "Phoenix Industries owns 72% of Solar Systems LLC.",
+            text: "TechStart Corporation owns 72% of the voting stock of AppDev Inc.",
             diagram: `
-      [Phoenix Industries]
+        [TechStart Corp]
               |
              72%
               |
-       [Solar Systems LLC]
+          [AppDev Inc]
             `,
-            question: "Should Phoenix Industries consolidate Solar Systems?",
+            question: "Should TechStart consolidate AppDev's financial statements?",
             options: [
-                "Yes - Phoenix must consolidate Solar Systems",
+                "Yes - TechStart must consolidate AppDev",
                 "No - Consolidation is not required",
                 "Need more information"
             ],
             correctAnswer: 0,
             hint: "What ownership percentage creates control? Remember the 50% threshold.",
-            explanation: "✅ Correct! Phoenix owns 72%, which is well above 50%. This gives Phoenix control and requires consolidation."
+            explanation: "✅ Correct! TechStart owns 72%, which is well above 50%. This gives TechStart control and requires consolidation."
         },
         // VERSION C
         {
-            text: "MegaRetail Corp owns 58% of ShopCo Inc.",
+            text: "TechStart Corporation owns 58% of the voting stock of AppDev Inc.",
             diagram: `
-       [MegaRetail Corp]
+        [TechStart Corp]
               |
              58%
               |
-          [ShopCo Inc]
+          [AppDev Inc]
             `,
-            question: "Should MegaRetail consolidate ShopCo?",
+            question: "Should TechStart consolidate AppDev's financial statements?",
             options: [
-                "Yes - MegaRetail must consolidate ShopCo",
+                "Yes - TechStart must consolidate AppDev",
                 "No - Consolidation is not required",
                 "Need more information about control"
             ],
             correctAnswer: 0,
             hint: "What ownership percentage creates control? Remember the 50% threshold.",
-            explanation: "✅ Correct! MegaRetail owns 58% (>50%), establishing control. Consolidation is required."
+            explanation: "✅ Correct! TechStart owns 58% (>50%), establishing control. Consolidation is required."
         }
     ],
 
@@ -89,17 +90,17 @@ const QUESTIONS = {
         },
         // VERSION B
         {
-            text: "Investment Co owns 45% of Digital Services. No other shareholder owns more than 20%.",
+            text: "Retail Group owns 45% of Store Chain Inc. Retail Group is the largest single shareholder, but other investors own the remaining 55%.",
             diagram: `
-       [Investment Co]
+        [Retail Group]
               |
              45%
               |
-      [Digital Services]
+      [Store Chain Inc]
             `,
-            question: "Should Investment Co consolidate Digital Services?",
+            question: "Should Retail Group consolidate Store Chain?",
             options: [
-                "Yes - Investment Co has effective control",
+                "Yes - Retail Group has effective control",
                 "No - Consolidation is not required",
                 "Maybe - Need to assess control factors"
             ],
@@ -109,17 +110,17 @@ const QUESTIONS = {
         },
         // VERSION C
         {
-            text: "Alpha Partners owns 47% of Beta Enterprises. Three other investors each own 17-18%.",
+            text: "Retail Group owns 47% of Store Chain Inc. Retail Group is the largest single shareholder, but other investors own the remaining 53%.",
             diagram: `
-       [Alpha Partners]
+        [Retail Group]
               |
              47%
               |
-      [Beta Enterprises]
+      [Store Chain Inc]
             `,
-            question: "Should Alpha Partners consolidate Beta Enterprises?",
+            question: "Should Retail Group consolidate Store Chain?",
             options: [
-                "Yes - Alpha has control",
+                "Yes - Retail Group has control",
                 "No - Consolidation is not required",
                 "Unclear without more information"
             ],
@@ -154,17 +155,17 @@ const QUESTIONS = {
         },
         // VERSION B
         {
-            text: "Venture Capital owns 38% of StartUp Co.\n\nShareholder agreement gives Venture Capital:\n• Veto power over all major decisions\n• Right to appoint CEO and CFO",
+            text: "Phoenix Partners owns 38% of Delta Services.\n\nHowever, Phoenix has contractual rights to:\n• Veto power over all major decisions\n• Right to appoint CEO and CFO",
             diagram: `
-      [Venture Capital]
+     [Phoenix Partners]
               |
        38% ownership
     + veto power
     + management control
               |
-        [StartUp Co]
+       [Delta Services]
             `,
-            question: "Should Venture Capital consolidate StartUp Co?",
+            question: "Should Phoenix consolidate Delta?",
             options: [
                 "Yes - Has effective control through rights",
                 "No - Ownership is too low",
@@ -172,21 +173,21 @@ const QUESTIONS = {
             ],
             correctAnswer: 0,
             hint: "Control can exist through means other than voting shares. Look at the contractual powers granted.",
-            explanation: "✅ Correct! Venture Capital has control through contractual rights despite low ownership. Veto power and management control = consolidation required."
+            explanation: "✅ Correct! Phoenix has control through contractual rights despite low ownership. Veto power and management control = consolidation required."
         },
         // VERSION C
         {
-            text: "Strategic Investor owns 45% of Tech Firm.\n\nContract grants Strategic Investor:\n• Control over board composition\n• Authority over business strategy",
+            text: "Phoenix Partners owns 45% of Delta Services.\n\nHowever, Phoenix has contractual rights to:\n• Control over board composition\n• Authority over business strategy",
             diagram: `
-   [Strategic Investor]
+     [Phoenix Partners]
               |
        45% ownership
     + board control
     + strategy authority
               |
-        [Tech Firm]
+       [Delta Services]
             `,
-            question: "Should Strategic Investor consolidate Tech Firm?",
+            question: "Should Phoenix consolidate Delta?",
             options: [
                 "Yes - Has control through contractual rights",
                 "No - Needs majority ownership",
@@ -194,7 +195,7 @@ const QUESTIONS = {
             ],
             correctAnswer: 0,
             hint: "Control can exist through means other than voting shares. Look at the contractual powers granted.",
-            explanation: "✅ Perfect! Strategic Investor has control through contractual rights over board and strategy. Ownership % is not the only path to control. Consolidation required."
+            explanation: "✅ Perfect! Phoenix has control through contractual rights over board and strategy. Ownership % is not the only path to control. Consolidation required."
         }
     ],
 
@@ -226,53 +227,53 @@ const QUESTIONS = {
         },
         // VERSION B
         {
-            text: "ParentCo owns 75% of MiddleCo.\nMiddleCo owns 65% of LowerCo.",
+            text: "BuildCo owns 75% of ConstructCo.\nConstructCo owns 65% of SupplyCo.",
             diagram: `
-        [ParentCo]
+        [BuildCo]
             |
            75%
             |
-        [MiddleCo]
+      [ConstructCo]
             |
            65%
             |
-        [LowerCo]
+       [SupplyCo]
             `,
-            question: "Which entities should ParentCo consolidate?",
+            question: "Which entities should BuildCo consolidate?",
             options: [
-                "Only MiddleCo",
-                "Only LowerCo",
-                "Both MiddleCo and LowerCo",
+                "Only ConstructCo",
+                "Only SupplyCo",
+                "Both ConstructCo and SupplyCo",
                 "Neither entity"
             ],
             correctAnswer: 2,
             hint: "If you consolidate a subsidiary, you also consolidate what IT controls. Check if control exists at each link in the chain.",
-            explanation: "✅ Excellent! ParentCo controls MiddleCo (75%), and MiddleCo controls LowerCo (65%). Both must be consolidated by ParentCo."
+            explanation: "✅ Excellent! BuildCo controls ConstructCo (75%), and ConstructCo controls SupplyCo (65%). Both must be consolidated by BuildCo."
         },
         // VERSION C
         {
-            text: "TopCorp owns 85% of MidCorp.\nMidCorp owns 60% of BottomCorp.",
+            text: "BuildCo owns 85% of ConstructCo.\nConstructCo owns 60% of SupplyCo.",
             diagram: `
-        [TopCorp]
+        [BuildCo]
             |
            85%
             |
-        [MidCorp]
+      [ConstructCo]
             |
            60%
             |
-      [BottomCorp]
+       [SupplyCo]
             `,
-            question: "Which entities should TopCorp consolidate?",
+            question: "Which entities should BuildCo consolidate?",
             options: [
-                "Only MidCorp",
-                "Only BottomCorp",
-                "Both MidCorp and BottomCorp",
+                "Only ConstructCo",
+                "Only SupplyCo",
+                "Both ConstructCo and SupplyCo",
                 "Neither entity"
             ],
             correctAnswer: 2,
             hint: "If you consolidate a subsidiary, you also consolidate what IT controls. Check if control exists at each link in the chain.",
-            explanation: "✅ Correct! TopCorp controls MidCorp (85%), and MidCorp controls BottomCorp (60%). Since control exists at each level, TopCorp consolidates both entities."
+            explanation: "✅ Correct! BuildCo controls ConstructCo (85%), and ConstructCo controls SupplyCo (60%). Since control exists at each level, BuildCo consolidates both entities."
         }
     ],
 
@@ -295,164 +296,151 @@ const QUESTIONS = {
             options: [
                 "Yes - AlphaCorp controls the chain",
                 "No - The chain is broken at BetaCorp",
-                "Yes - AlphaCorp's indirect ownership is 36%"
+                "Yes - Through indirect ownership"
             ],
             correctAnswer: 1,
             hint: "Each link needs control (>50%) for the chain to continue. Does the middle entity control the bottom entity?",
-            explanation: "✅ Excellent reasoning! While AlphaCorp controls BetaCorp, BetaCorp does NOT control GammaCorp (only 45%). Since BetaCorp doesn't consolidate GammaCorp, AlphaCorp doesn't either. Each link must have control."
+            explanation: "✅ Excellent reasoning! While AlphaCorp controls BetaCorp (80%), BetaCorp does NOT control GammaCorp (only 45%). Since BetaCorp doesn't consolidate GammaCorp, AlphaCorp doesn't either. Each link must have control."
         },
         // VERSION B
         {
-            text: "Parent owns 90% of Subsidiary.\nSubsidiary owns 40% of Associate.",
+            text: "AlphaCorp owns 90% of BetaCorp.\nBetaCorp owns 40% of GammaCorp.",
             diagram: `
-          [Parent]
+        [AlphaCorp]
             |
            90%
             |
-       [Subsidiary]
+        [BetaCorp]
             |
            40%
             |
-       [Associate]
+       [GammaCorp]
             `,
-            question: "Should Parent consolidate Associate?",
+            question: "Should AlphaCorp consolidate GammaCorp?",
             options: [
-                "Yes - Control flows through Subsidiary",
-                "No - Subsidiary lacks control of Associate",
-                "Yes - Parent controls Subsidiary"
+                "Yes - Control flows through BetaCorp",
+                "No - BetaCorp lacks control of GammaCorp",
+                "Yes - AlphaCorp controls BetaCorp"
             ],
             correctAnswer: 1,
             hint: "Each link needs control (>50%) for the chain to continue. Does the middle entity control the bottom entity?",
-            explanation: "✅ Correct! Parent controls Subsidiary (90%), but Subsidiary does NOT control Associate (40%). The chain breaks. Associate is not consolidated."
+            explanation: "✅ Correct! AlphaCorp controls BetaCorp (90%), but BetaCorp does NOT control GammaCorp (40%). The chain breaks. GammaCorp is not consolidated."
         },
         // VERSION C
         {
-            text: "HoldCo owns 70% of OpCo.\nOpCo owns 48% of RegionalCo.",
+            text: "AlphaCorp owns 70% of BetaCorp.\nBetaCorp owns 48% of GammaCorp.",
             diagram: `
-        [HoldCo]
+        [AlphaCorp]
             |
            70%
             |
-          [OpCo]
+        [BetaCorp]
             |
            48%
             |
-      [RegionalCo]
+       [GammaCorp]
             `,
-            question: "Should HoldCo consolidate RegionalCo?",
+            question: "Should AlphaCorp consolidate GammaCorp?",
             options: [
                 "Yes - Through the ownership chain",
-                "No - OpCo doesn't control RegionalCo",
-                "Yes - Total ownership is 33.6%"
+                "No - BetaCorp doesn't control GammaCorp",
+                "Yes - Total ownership exceeds threshold"
             ],
             correctAnswer: 1,
             hint: "Each link needs control (>50%) for the chain to continue. Does the middle entity control the bottom entity?",
-            explanation: "✅ Perfect! HoldCo controls OpCo (70%), but OpCo does NOT control RegionalCo (48% < 50%). Since OpCo doesn't consolidate RegionalCo, HoldCo doesn't either."
+            explanation: "✅ Perfect! AlphaCorp controls BetaCorp (70%), but BetaCorp does NOT control GammaCorp (48% < 50%). Since BetaCorp doesn't consolidate GammaCorp, AlphaCorp doesn't either."
         }
     ],
 
     scenario6: [
-        // VERSION A
+        // VERSION A - NO INDIRECT CALCULATIONS
         {
-            text: "Omega Holdings owns:\n• 60% of Sub A\n• 25% of Target Co (direct)\n\nSub A owns 35% of Target Co.",
-            diagram: `
-      [Omega Holdings]
-         /        \\
-       60%        25%
-       /            \\
-   [Sub A]      [Target Co]
-       \\            /
-        \\    35%   /
-         \\        /
-        [Target Co]
-            `,
-            question: "What is Omega's TOTAL ownership in Target Co?",
-            options: [
-                "25% total",
-                "46% total (25% direct + 21% indirect)",
-                "60% total",
-                "85% total"
-            ],
-            correctAnswer: 1,
-            hint: "Add DIRECT ownership + (Omega's % of Sub A × Sub A's % of Target). Calculate the indirect piece!",
-            explanation: "✅ Outstanding! You correctly calculated:\n• Direct: 25%\n• Indirect: 60% × 35% = 21%\n• Total: 46%\n\nNote: 46% < 50%, so Omega does NOT consolidate Target Co."
-        },
-        // VERSION B
-        {
-            text: "MegaCorp owns:\n• 70% of Division X\n• 20% of Company Z (direct)\n\nDivision X owns 40% of Company Z.",
-            diagram: `
-        [MegaCorp]
-         /        \\
-       70%        20%
-       /            \\
-  [Division X]  [Company Z]
-       \\            /
-        \\    40%   /
-         \\        /
-        [Company Z]
-            `,
-            question: "What is MegaCorp's TOTAL ownership in Company Z?",
-            options: [
-                "20% total",
-                "48% total (20% direct + 28% indirect)",
-                "60% total",
-                "70% total"
-            ],
-            correctAnswer: 1,
-            hint: "Indirect ownership = 70% × 40% = 28%. Then add to direct 20%.",
-            explanation: "✅ Excellent!\n• Direct: 20%\n• Indirect: 70% × 40% = 28%\n• Total: 48%\n\n48% < 50%, so no consolidation of Company Z."
-        },
-        // VERSION C
-        {
-            text: "Parent owns:\n• 80% of Subsidiary B\n• 15% of Target (direct)\n\nSubsidiary B owns 30% of Target.",
-            diagram: `
-          [Parent]
-         /        \\
-       80%        15%
-       /            \\
-  [Sub B]        [Target]
-       \\            /
-        \\    30%   /
-         \\        /
-          [Target]
-            `,
-            question: "What is Parent's TOTAL ownership in Target?",
-            options: [
-                "15% total",
-                "39% total (15% direct + 24% indirect)",
-                "45% total",
-                "80% total"
-            ],
-            correctAnswer: 1,
-            hint: "Calculate indirect (80% × 30% = ?), then add to direct (15%).",
-            explanation: "✅ Perfect!\n• Direct: 15%\n• Indirect: 80% × 30% = 24%\n• Total: 39%\n\nParent does not consolidate Target (39% < 50%)."
-        }
-    ],
-
-
-    scenario7: [
-        // VERSION A
-        {
-            text: "GlobalCorp owns the following entities:\n\n• 70% of Alpha Inc\n• 30% of Beta Corp\n• 55% of Gamma LLC\n• 48% of Delta Co",
+            text: "GlobalCorp owns the following entities:\n\n• 75% of Alpha Inc\n• 30% of Beta Corp\n• 55% of Gamma LLC",
             diagram: `
           [GlobalCorp]
-        /    |    |    \\
-      70%   30%  55%  48%
-      /      |    |     \\
-  [Alpha] [Beta][Gamma][Delta]
+        /      |      \\
+      75%     30%    55%
+      /        |       \\
+  [Alpha]  [Beta]  [Gamma]
             `,
             question: "Which entities should GlobalCorp consolidate?",
             options: [
                 "Alpha only",
                 "Alpha and Gamma only",
-                "Alpha, Beta, and Gamma",
-                "All four entities"
+                "All three entities",
+                "Alpha and Beta only"
             ],
             correctAnswer: 1,
             hint: "Check each entity individually. Does GlobalCorp own more than 50% of each one?",
-            explanation: "✅ Excellent!\n• Alpha (70%): Consolidate ✓\n• Beta (30%): No control ✗\n• Gamma (55%): Consolidate ✓\n• Delta (48%): No control ✗"
+            explanation: "✅ Excellent!\n• Alpha (75%): Consolidate ✓\n• Beta (30%): No control ✗\n• Gamma (55%): Consolidate ✓"
         },
-        // VERSION B
+        // VERSION B - NO INDIRECT CALCULATIONS
+        {
+            text: "GlobalCorp owns the following entities:\n\n• 85% of Alpha Inc\n• 42% of Beta Corp\n• 60% of Gamma LLC",
+            diagram: `
+          [GlobalCorp]
+        /      |      \\
+      85%     42%    60%
+      /        |       \\
+  [Alpha]  [Beta]  [Gamma]
+            `,
+            question: "Which entities should GlobalCorp consolidate?",
+            options: [
+                "Alpha only",
+                "Alpha and Gamma only",
+                "All three entities",
+                "Gamma only"
+            ],
+            correctAnswer: 1,
+            hint: "Check each entity individually. Does GlobalCorp own more than 50% of each one?",
+            explanation: "✅ Perfect analysis!\n• Alpha (85%): Consolidate ✓\n• Beta (42%): No control ✗\n• Gamma (60%): Consolidate ✓"
+        },
+        // VERSION C - NO INDIRECT CALCULATIONS
+        {
+            text: "GlobalCorp owns the following entities:\n\n• 65% of Alpha Inc\n• 50% of Beta Corp (exactly 50%)\n• 72% of Gamma LLC",
+            diagram: `
+          [GlobalCorp]
+        /      |      \\
+      65%     50%    72%
+      /        |       \\
+  [Alpha]  [Beta]  [Gamma]
+            `,
+            question: "Which entities should GlobalCorp consolidate?",
+            options: [
+                "Alpha and Gamma only",
+                "All three entities",
+                "Alpha and Beta only",
+                "Alpha only"
+            ],
+            correctAnswer: 0,
+            hint: "Check each entity individually. Remember: control requires MORE than 50%, not equal to 50%.",
+            explanation: "✅ Great work!\n• Alpha (65%): Consolidate ✓\n• Beta (50% exactly): NOT > 50%, no control ✗\n• Gamma (72%): Consolidate ✓"
+        }
+    ],
+
+    scenario7: [
+        // VERSION A - NO INDIRECT CALCULATIONS
+        {
+            text: "MegaCorp owns the following entities:\n\n• 70% of Sub1 Inc\n• 30% of Sub2 LLC\n• 55% of Sub3 Corp\n• 48% of Sub4 Co",
+            diagram: `
+          [MegaCorp]
+        /    |    |    \\
+      70%   30%  55%  48%
+      /      |    |     \\
+  [Sub1] [Sub2][Sub3][Sub4]
+            `,
+            question: "Which entities should MegaCorp consolidate?",
+            options: [
+                "Sub1 only",
+                "Sub1 and Sub3 only",
+                "Sub1, Sub2, and Sub3",
+                "All four entities"
+            ],
+            correctAnswer: 1,
+            hint: "Check each entity individually. Does MegaCorp own more than 50% of each one?",
+            explanation: "✅ Excellent!\n• Sub1 (70%): Consolidate ✓\n• Sub2 (30%): No control ✗\n• Sub3 (55%): Consolidate ✓\n• Sub4 (48%): No control ✗"
+        },
+        // VERSION B - NO INDIRECT CALCULATIONS
         {
             text: "MegaCorp owns the following entities:\n\n• 85% of Sub1 Inc\n• 42% of Sub2 LLC\n• 60% of Sub3 Corp\n• 51% of Sub4 Co",
             diagram: `
@@ -473,26 +461,26 @@ const QUESTIONS = {
             hint: "Check each entity individually. Does MegaCorp own more than 50% of each one?",
             explanation: "✅ Perfect analysis!\n• Sub1 (85%): Consolidate ✓\n• Sub2 (42%): No control ✗\n• Sub3 (60%): Consolidate ✓\n• Sub4 (51%): Consolidate ✓"
         },
-        // VERSION C
+        // VERSION C - NO INDIRECT CALCULATIONS
         {
-            text: "TopCo owns the following entities:\n\n• 65% of Company A\n• 50% of Company B (exactly 50%)\n• 75% of Company C\n• 35% of Company D",
+            text: "MegaCorp owns the following entities:\n\n• 65% of Sub1 Inc\n• 50% of Sub2 LLC (exactly 50%)\n• 75% of Sub3 Corp\n• 35% of Sub4 Co",
             diagram: `
-          [TopCo]
+          [MegaCorp]
         /    |    |    \\
       65%   50%  75%  35%
       /      |    |     \\
-   [Co A] [Co B][Co C][Co D]
+  [Sub1] [Sub2][Sub3][Sub4]
             `,
-            question: "Which entities should TopCo consolidate?",
+            question: "Which entities should MegaCorp consolidate?",
             options: [
-                "Companies A and C only",
-                "Companies A, B, and C",
+                "Sub1 and Sub3 only",
+                "Sub1, Sub2, and Sub3",
                 "All four companies",
-                "Company A only"
+                "Sub1 only"
             ],
             correctAnswer: 0,
             hint: "Check each entity individually. Remember: control requires MORE than 50%, not equal to 50%.",
-            explanation: "✅ Great work!\n• Company A (65%): Consolidate ✓\n• Company B (50% exactly): NOT > 50%, no control ✗\n• Company C (75%): Consolidate ✓\n• Company D (35%): No control ✗"
+            explanation: "✅ Great work!\n• Sub1 (65%): Consolidate ✓\n• Sub2 (50% exactly): NOT > 50%, no control ✗\n• Sub3 (75%): Consolidate ✓\n• Sub4 (35%): No control ✗"
         }
     ],
 
@@ -521,24 +509,24 @@ Situation 1:     Situation 2:       Situation 3:
             ],
             correctAnswer: 2,
             hint: "Test each: Does ownership exceed 50%? For chains, does control exist at each link?",
-            explanation: "✅ Perfect!\n• Situation 1 (52%): Consolidate ✓\n• Situation 2 (48%, no special rights): No control ✗\n• Situation 3: HoldCo consolidates both OpCo and Regional (both links >50%) ✓"
+            explanation: "✅ Perfect!\n• Situation 1: Parent owns 52% of Sub → Consolidate ✓\n• Situation 2: Investor owns 48% (no special rights) → No control ✗\n• Situation 3: HoldCo consolidates both OpCo (85%) and Regional (OpCo owns 65%) ✓"
         },
         // VERSION B
         {
-            text: "Evaluate these situations:\n\nSituation 1: A owns 58% of B\n\nSituation 2: C owns 49% of D (largest shareholder)\n\nSituation 3: E owns 70% of F; F owns 75% of G",
+            text: "Evaluate these three separate situations:\n\nSituation 1: Parent owns 58% of Sub\n\nSituation 2: Investor owns 49% of Joint (largest shareholder)\n\nSituation 3: HoldCo owns 70% of OpCo; OpCo owns 75% of Regional",
             diagram: `
-Situation 1:    Situation 2:     Situation 3:
-   [A]              [C]               [E]
-    |                |                 |
-   58%              49%               70%
-    |                |                 |
-   [B]              [D]               [F]
-                                       |
-                                      75%
-                                       |
-                                      [G]
+Situation 1:     Situation 2:       Situation 3:
+[Parent]         [Investor]         [HoldCo]
+   |                 |                  |
+  58%               49%                70%
+   |                 |                  |
+ [Sub]            [Joint]            [OpCo]
+                                        |
+                                       75%
+                                        |
+                                   [Regional]
             `,
-            question: "Which situations require consolidation?",
+            question: "In which situation(s) does consolidation occur?",
             options: [
                 "Situation 1 only",
                 "Situations 1 and 2",
@@ -547,24 +535,24 @@ Situation 1:    Situation 2:     Situation 3:
             ],
             correctAnswer: 2,
             hint: "Test each: Does ownership exceed 50%? For chains, does control exist at each link?",
-            explanation: "✅ Excellent!\n• Situation 1 (58%): Consolidate ✓\n• Situation 2 (49%): No control ✗\n• Situation 3: E consolidates both F and G (both links >50%) ✓"
+            explanation: "✅ Excellent!\n• Situation 1: Parent owns 58% of Sub → Consolidate ✓\n• Situation 2: Investor owns 49% → No control ✗\n• Situation 3: HoldCo consolidates both OpCo (70%) and Regional (OpCo owns 75%) ✓"
         },
         // VERSION C
         {
-            text: "Analyze these scenarios:\n\nSituation 1: Parent owns 61% of Target\n\nSituation 2: Investor owns 44% of Startup with board control rights\n\nSituation 3: Top owns 90% of Mid; Mid owns 40% of Low",
+            text: "Evaluate these three separate situations:\n\nSituation 1: Parent owns 61% of Sub\n\nSituation 2: Investor owns 44% of Joint with board control rights\n\nSituation 3: HoldCo owns 90% of OpCo; OpCo owns 40% of Regional",
             diagram: `
 Situation 1:    Situation 2:          Situation 3:
- [Parent]       [Investor]              [Top]
+ [Parent]       [Investor]              [HoldCo]
     |               |                     |
    61%        44% + control              90%
     |               |                     |
- [Target]       [Startup]               [Mid]
+ [Sub]           [Joint]               [OpCo]
                                           |
                                          40%
                                           |
-                                        [Low]
+                                      [Regional]
             `,
-            question: "Which situations require consolidation?",
+            question: "In which situation(s) does consolidation occur?",
             options: [
                 "Situations 1 and 2",
                 "Situations 1 and 3",
@@ -573,7 +561,7 @@ Situation 1:    Situation 2:          Situation 3:
             ],
             correctAnswer: 0,
             hint: "61% = yes. 44% + board control = yes. For chains, check if EACH link exceeds 50%.",
-            explanation: "✅ Perfect analysis!\n• Situation 1 (61%): Consolidate ✓\n• Situation 2 (44% + board control): Yes, contractual control ✓\n• Situation 3: Top consolidates Mid, but Mid doesn't control Low (40%) ✗"
+            explanation: "✅ Perfect analysis!\n• Situation 1: Parent owns 61% → Consolidate ✓\n• Situation 2: Investor has contractual board control → Consolidate ✓\n• Situation 3: HoldCo consolidates OpCo, but OpCo doesn't control Regional (40%) ✗"
         }
     ],
 
@@ -603,18 +591,18 @@ Situation 1:    Situation 2:          Situation 3:
         },
         // VERSION B
         {
-            text: "SpecialCo was set up by Manufacturing Inc.\n\nStructure:\n• Manufacturing owns 5% equity\n• Manufacturing controls all operations\n• Manufacturing absorbs 90% of economics\n• Outside investors get fixed returns only",
+            text: "PropertyCo (property holding company) was created by RealEstate Inc.\n\nStructure:\n• RealEstate owns 5% of PropertyCo\n• RealEstate controls all operations\n• RealEstate guarantees all obligations\n• RealEstate receives 90% of profits/losses",
             diagram: `
-   [Manufacturing Inc]
+     [RealEstate Inc]
            |
      5% equity
   + operational control
-  + 90% economics
-  + risk bearer
+  + debt guarantees
+  + 90% of economics
            |
-      [SpecialCo]
+      [PropertyCo]
             `,
-            question: "Should Manufacturing Inc. consolidate SpecialCo?",
+            question: "Should RealEstate Inc. consolidate PropertyCo?",
             options: [
                 "No - Ownership too low",
                 "Yes - Primary beneficiary of VIE structure",
@@ -622,22 +610,22 @@ Situation 1:    Situation 2:          Situation 3:
             ],
             correctAnswer: 1,
             hint: "VIE control = power to direct activities + obligation to absorb economic benefits/losses. Who has both?",
-            explanation: "✅ Perfect! This is a VIE. Manufacturing has:\n• Power (controls operations)\n• Economics (90% of variable returns)\n\nManufacturing is the primary beneficiary and must consolidate, despite only 5% ownership."
+            explanation: "✅ Perfect! This is a VIE. RealEstate has:\n• Power (controls operations)\n• Economics (90% of variable returns)\n\nRealEstate is the primary beneficiary and must consolidate PropertyCo, despite only 5% ownership."
         },
         // VERSION C
         {
-            text: "HoldingEntity created by Developer Corp.\n\nStructure:\n• Developer owns 10% of HoldingEntity\n• Developer directs all activities\n• Developer guarantees all liabilities\n• Developer receives 75% of residual returns",
+            text: "PropertyCo (property holding company) was created by RealEstate Inc.\n\nStructure:\n• RealEstate owns 10% of PropertyCo\n• RealEstate directs all activities\n• RealEstate guarantees all liabilities\n• RealEstate receives 75% of profits/losses",
             diagram: `
-     [Developer Corp]
+     [RealEstate Inc]
            |
      10% equity
   + activity direction
   + liability guarantees
-  + 75% residual returns
+  + 75% of economics
            |
-    [HoldingEntity]
+      [PropertyCo]
             `,
-            question: "Should Developer Corp. consolidate HoldingEntity?",
+            question: "Should RealEstate Inc. consolidate PropertyCo?",
             options: [
                 "No - Minority ownership",
                 "Yes - Controls VIE as primary beneficiary",
@@ -645,7 +633,7 @@ Situation 1:    Situation 2:          Situation 3:
             ],
             correctAnswer: 1,
             hint: "VIE control = power to direct activities + obligation to absorb economic benefits/losses. Who has both?",
-            explanation: "✅ Excellent VIE analysis! Developer has:\n• Power (directs activities)\n• Economics (guarantees + 75% of returns)\n\nDeveloper is the primary beneficiary and must consolidate HoldingEntity."
+            explanation: "✅ Excellent VIE analysis! RealEstate has:\n• Power (directs activities)\n• Economics (guarantees + 75% of returns)\n\nRealEstate is the primary beneficiary and must consolidate PropertyCo."
         }
     ],
 
@@ -677,53 +665,53 @@ Situation 1:    Situation 2:          Situation 3:
         },
         // VERSION B
         {
-            text: "Parent ownership:\n\n• 80% of Sub1\n• 58% of Sub2\n• 12% of EntityY\n\nSub1 owns 70% of SubLevel2.\n\nEntityY: Parent manages, guarantees obligations, receives 85% of returns.",
+            text: "GlobalCorp ownership structure:\n\n• 80% of FullSub\n• 58% of MidCo\n• 12% of SPE\n\nFullSub owns 70% of LowerCo.\n\nSPE: GlobalCorp manages operations, guarantees obligations, receives 85% of economics.",
             diagram: `
-            [Parent]
+          [GlobalCorp]
           /    |     \\
         80%   58%    12%
         /      |       \\
-    [Sub1] [Sub2]  [EntityY]
+   [FullSub][MidCo]  [SPE]
         |            (VIE:
-       70%           Parent
+       70%           GlobalCorp
         |            controls)
-  [SubLevel2]
+   [LowerCo]
             `,
-            question: "Which entities should Parent consolidate?",
+            question: "Which entities should GlobalCorp consolidate?",
             options: [
-                "Sub1 and Sub2 only",
-                "Sub1, SubLevel2, and EntityY",
+                "FullSub and MidCo only",
+                "FullSub, LowerCo, and SPE",
                 "All four entities",
-                "Sub1, Sub2, and EntityY"
+                "FullSub, MidCo, and SPE"
             ],
             correctAnswer: 2,
-            hint: "Check direct ownership >50%. For chains, does each link have control? Is EntityY a VIE?",
-            explanation: "🎉 Perfect comprehensive analysis!\n\n• Sub1 (80%): Consolidate ✓\n\n• SubLevel2: Sub1 controls it (70%) → Consolidate ✓\n\n• Sub2 (58%): Direct control → Consolidate ✓\n\n• EntityY: VIE, Parent is primary beneficiary → Consolidate ✓\n\nExcellent work on all concepts!"
+            hint: "Check direct ownership >50%. For chains, does each link have control? Is SPE a VIE?",
+            explanation: "🎉 Perfect comprehensive analysis!\n\n• FullSub (80%): Consolidate ✓\n\n• LowerCo: FullSub controls it (70%) → Consolidate ✓\n\n• MidCo (58%): Direct control → Consolidate ✓\n\n• SPE: VIE, GlobalCorp is primary beneficiary → Consolidate ✓\n\nExcellent work on all concepts!"
         },
         // VERSION C
         {
-            text: "TopCo structure:\n\n• 70% of MidCo\n• 62% of DirectSub\n• 8% of SPV\n\nMidCo owns 55% of LowerLevel.\n\nSPV: TopCo controls operations, bears risk, gets 80% of variable returns.",
+            text: "GlobalCorp ownership structure:\n\n• 70% of FullSub\n• 62% of MidCo\n• 8% of SPE\n\nFullSub owns 55% of LowerCo.\n\nSPE: GlobalCorp controls operations, bears risk, gets 80% of economics.",
             diagram: `
-            [TopCo]
+          [GlobalCorp]
           /    |     \\
         70%   62%    8%
         /      |       \\
-    [MidCo][DirectSub][SPV]
-        |              (VIE:
-       55%             TopCo
-        |              controls)
-  [LowerLevel]
+   [FullSub][MidCo]  [SPE]
+        |            (VIE:
+       55%           GlobalCorp
+        |            controls)
+   [LowerCo]
             `,
-            question: "Which entities should TopCo consolidate?",
+            question: "Which entities should GlobalCorp consolidate?",
             options: [
-                "MidCo and DirectSub only",
-                "MidCo, LowerLevel, and SPV",
+                "FullSub and MidCo only",
+                "FullSub, LowerCo, and SPE",
                 "All four entities",
-                "MidCo, DirectSub, and SPV"
+                "FullSub, MidCo, and SPE"
             ],
             correctAnswer: 2,
-            hint: "Check direct ownership >50%. For chains, does each link have control? Is SPV a VIE?",
-            explanation: "🎉 BRILLIANT! Full mastery demonstrated:\n\n• MidCo (70%): Consolidate ✓\n\n• LowerLevel: MidCo controls it (55%) → Consolidate ✓\n\n• DirectSub (62%): Direct control → Consolidate ✓\n\n• SPV: VIE with TopCo as primary beneficiary → Consolidate ✓\n\nYou're a consolidation professional!"
+            hint: "Check direct ownership >50%. For chains, does each link have control? Is SPE a VIE?",
+            explanation: "🎉 BRILLIANT! Full mastery demonstrated:\n\n• FullSub (70%): Consolidate ✓\n\n• LowerCo: FullSub controls it (55%) → Consolidate ✓\n\n• MidCo (62%): Direct control → Consolidate ✓\n\n• SPE: VIE with GlobalCorp as primary beneficiary → Consolidate ✓\n\nYou're a consolidation professional!"
         }
     ]
 };
