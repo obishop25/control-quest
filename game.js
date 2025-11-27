@@ -7,8 +7,7 @@ let gameState = {
     scenariosRevisited: 0,
     startTime: null,
     hintUsedThisScenario: false,
-    selectedAnswer: null,
-    usedVersions: {} // Track which versions used for each scenario
+    selectedAnswer: null
 };
 
 // ===== DOM ELEMENTS =====
@@ -136,28 +135,9 @@ function loadScenario(scenarioNumber, forceNewVersion = false) {
 }
 
 function getScenarioVersion(scenarioNumber, forceNewVersion) {
+    // V5: Single question per scenario, no version selection needed
     const scenarioKey = `scenario${scenarioNumber}`;
-    const versions = QUESTIONS[scenarioKey];
-    
-    if (!gameState.usedVersions[scenarioKey]) {
-        gameState.usedVersions[scenarioKey] = [];
-    }
-    
-    let availableVersions = [0, 1, 2].filter(
-        v => !gameState.usedVersions[scenarioKey].includes(v)
-    );
-    
-    // If all versions used or forcing new, reset and get random
-    if (availableVersions.length === 0 || forceNewVersion) {
-        gameState.usedVersions[scenarioKey] = [];
-        availableVersions = [0, 1, 2];
-    }
-    
-    // Select random available version
-    const versionIndex = availableVersions[Math.floor(Math.random() * availableVersions.length)];
-    gameState.usedVersions[scenarioKey].push(versionIndex);
-    
-    return versions[versionIndex];
+    return QUESTIONS[scenarioKey];
 }
 
 function displayScenario(scenario) {
